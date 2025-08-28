@@ -1,2 +1,0 @@
-# audio-pruning
-QCNN pruning
