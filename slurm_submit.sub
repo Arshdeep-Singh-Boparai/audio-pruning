@@ -1,0 +1,21 @@
+#!/bin/sh
+
+#SBATCH --job-name="finetuning_pruned_qcnn"
+#SBATCH --partition=3090
+#SBATCH --gpus=1
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=40G
+#SBATCH --time=3-00:00:00
+#SBATCH -o slurm_log/slurm.%N.%j.out
+#SBATCH -e slurm_log/slurm.%N.%j.err
+
+mkdir -p slurm_log
+#apptainer exec oras://container-registry.surrey.ac.uk/shared-containers/pytorch:latest  python mnist_pytorch.py > slurm_log/slurm.${SLURM_JOB_NODELIST}.${SLURM_JOB_ID}.torch.out
+
+bash ./scripts/pruned_finetuning.sh
+
+
+
+
