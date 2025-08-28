@@ -2,7 +2,7 @@
 
 The rep contains model compression techniques, Passive filter Pruning and Knowledge distillation (KD), to compress Quaternion convolutional neural networks (QCNNs). We compress two quaternion models: QCNN14 and QResNet38. These models are quaternion equivalent of CNN14 and ResNet38 models[1].
 
-This repo is adapted from existing repo designed for [PANNs](https://github.com/qiuqiangkong/audioset_tagging_cnn).
+This repo is adapted from existing repo designed for [PANNs[1]](https://github.com/qiuqiangkong/audioset_tagging_cnn).
 
 
 
@@ -73,6 +73,8 @@ CUDA_LAUNCH_BLOCKING=1 CUDA_VISIBLE_DEVICES=0 python3 pytorch/main.py train \
    ```
 
 
-   
+# References
+
+[1] Qiuqiang Kong, Yin Cao, Turab Iqbal, Yuxuan Wang, Wenwu Wang, and Mark D. Plumbley. "Panns: Large-scale pretrained audio neural networks for audio pattern recognition." IEEE/ACM Transactions on Audio, Speech, and Language Processing 28 (2020): 2880-2894.   
    
        
