@@ -22,5 +22,5 @@ python run_qresnet38.py /path/to/qresnet38_checkpoint.pth outputs/qresnet38 op
 ## Output
 For each target layer, the scripts save:
 - `<layer>_mean_score.npy`
-- `<layer>_sorted_index.npy` (ascending order)
+- `<layer>_sorted_index.npy` (ascending order) [[output dir: ./sorted_index]]
 - a `meta.json` in the output folder

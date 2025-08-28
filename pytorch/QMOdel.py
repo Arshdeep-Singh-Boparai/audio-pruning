@@ -516,7 +516,7 @@ class QCnn14_pruned(nn.Module):
         amin = 1e-10
         top_db = None
         from collections import OrderedDict
-        path = './QCNN_sorted_Index/OP/' # path_to_sorted_indexex (add here)
+        path = './out/QCNn14/op' # path_to_sorted_indexex (add here)
 
         p = 0.75   # pruning ratio (change (0.25,0.50,0.75))
         p1 = 0
@@ -532,32 +532,32 @@ class QCnn14_pruned(nn.Module):
         p11 = p
         p12 = p
 
-        C1_r_b1 = sorted(np.load(os.path.join(path,'conv_block1.conv1_mean_score.npy'))[int(16*p1):16])
-        C1_i_b1 = sorted(np.load(os.path.join(path,'conv_block1.conv1_mean_score.npy'))[int(16*p1):16])
-        C1_j_b1 = sorted(np.load(os.path.join(path,'conv_block1.conv1_mean_score.npy'))[int(16*p1):16])
-        C1_k_b1 = sorted(np.load(os.path.join(path,'conv_block1.conv1_mean_score.npy'))[int(16*p1):16])
+        C1_r_b1 = sorted(np.load(os.path.join(path,'conv_block1.conv1_sorted_index.npy'))[int(16*p1):16])
+        C1_i_b1 = sorted(np.load(os.path.join(path,'conv_block1.conv1_sorted_index.npy'))[int(16*p1):16])
+        C1_j_b1 = sorted(np.load(os.path.join(path,'conv_block1.conv1_sorted_index.npy'))[int(16*p1):16])
+        C1_k_b1 = sorted(np.load(os.path.join(path,'conv_block1.conv1_sorted_index.npy'))[int(16*p1):16])
         # C1_k = np.arange(0,100)[16+int(16*p1):32]
         # 
-        C2_r_b1= sorted(np.load(os.path.join(path,'conv_block1.conv2_mean_score.npy'))[int(16*p2):16])
-        C2_i_b1= sorted(np.load(os.path.join(path,'conv_block1.conv2_mean_score.npy'))[int(16*p2):16])
-        C2_j_b1 = sorted(np.load(os.path.join(path,'conv_block1.conv2_mean_score.npy'))[int(16*p2):16])
-        C2_k_b1 = sorted(np.load(os.path.join(path,'conv_block1.conv2_mean_score.npy'))[int(16*p2):16])
+        C2_r_b1= sorted(np.load(os.path.join(path,'conv_block1.conv2_sorted_index.npy'))[int(16*p2):16])
+        C2_i_b1= sorted(np.load(os.path.join(path,'conv_block1.conv2_sorted_index.npy'))[int(16*p2):16])
+        C2_j_b1 = sorted(np.load(os.path.join(path,'conv_block1.conv2_sorted_index.npy'))[int(16*p2):16])
+        C2_k_b1 = sorted(np.load(os.path.join(path,'conv_block1.conv2_sorted_index.npy'))[int(16*p2):16])
         
         
         #'''''''''''''''''''''''''''''' block 2
-        C1_r_b2 = sorted(np.load(os.path.join(path,'conv_block2.conv1_mean_score.npy'))[int(32*p3):32])
-        C1_i_b2 = sorted(np.load(os.path.join(path,'conv_block2.conv1_mean_score.npy'))[int(32*p3):32])
-        C1_j_b2 = sorted(np.load(os.path.join(path,'conv_block2.conv1_mean_score.npy'))[int(32*p3):32])
-        C1_k_b2 = sorted(np.load(os.path.join(path,'conv_block2.conv1_mean_score.npy'))[int(32*p3):32])
+        C1_r_b2 = sorted(np.load(os.path.join(path,'conv_block2.conv1_sorted_index.npy'))[int(32*p3):32])
+        C1_i_b2 = sorted(np.load(os.path.join(path,'conv_block2.conv1_sorted_index.npy'))[int(32*p3):32])
+        C1_j_b2 = sorted(np.load(os.path.join(path,'conv_block2.conv1_sorted_index.npy'))[int(32*p3):32])
+        C1_k_b2 = sorted(np.load(os.path.join(path,'conv_block2.conv1_sorted_index.npy'))[int(32*p3):32])
         
         
         
         #sorted(np.load(os.path.join(path,'conv_block2.conv1.weight.npy'))[int(128*p3):128])
         
-        C2_r_b2 = sorted(np.load(os.path.join(path,'conv_block2.conv2_mean_score.npy'))[int(32*p4):32])
-        C2_i_b2 = sorted(np.load(os.path.join(path,'conv_block2.conv2_mean_score.npy'))[int(32*p4):32])
-        C2_j_b2 = sorted(np.load(os.path.join(path,'conv_block2.conv2_mean_score.npy'))[int(32*p4):32])
-        C2_k_b2 = sorted(np.load(os.path.join(path,'conv_block2.conv2_mean_score.npy'))[int(32*p4):32])
+        C2_r_b2 = sorted(np.load(os.path.join(path,'conv_block2.conv2_sorted_index.npy'))[int(32*p4):32])
+        C2_i_b2 = sorted(np.load(os.path.join(path,'conv_block2.conv2_sorted_index.npy'))[int(32*p4):32])
+        C2_j_b2 = sorted(np.load(os.path.join(path,'conv_block2.conv2_sorted_index.npy'))[int(32*p4):32])
+        C2_k_b2 = sorted(np.load(os.path.join(path,'conv_block2.conv2_sorted_index.npy'))[int(32*p4):32])
         
         #''''''''''''''''''''''''''''''' block 3
         
@@ -565,17 +565,17 @@ class QCnn14_pruned(nn.Module):
         #sorted(np.load(os.path.join(path,'conv_block2.conv2.weight.npy'))[int(128*p4):128])
         
         
-        C1_r_b3 = sorted(np.load(os.path.join(path,'conv_block3.conv1_mean_score.npy'))[int(64*p5):64])
-        C1_i_b3 = sorted(np.load(os.path.join(path,'conv_block3.conv1_mean_score.npy'))[int(64*p5):64])
-        C1_j_b3 = sorted(np.load(os.path.join(path,'conv_block3.conv1_mean_score.npy'))[int(64*p5):64])
-        C1_k_b3 = sorted(np.load(os.path.join(path,'conv_block3.conv1_mean_score.npy'))[int(64*p5):64])
+        C1_r_b3 = sorted(np.load(os.path.join(path,'conv_block3.conv1_sorted_index.npy'))[int(64*p5):64])
+        C1_i_b3 = sorted(np.load(os.path.join(path,'conv_block3.conv1_sorted_index.npy'))[int(64*p5):64])
+        C1_j_b3 = sorted(np.load(os.path.join(path,'conv_block3.conv1_sorted_index.npy'))[int(64*p5):64])
+        C1_k_b3 = sorted(np.load(os.path.join(path,'conv_block3.conv1_sorted_index.npy'))[int(64*p5):64])
         
         
         #sorted(np.load(os.path.join(path,'conv_block3.conv1.weight.npy'))[int(256*p5):256])
-        C2_r_b3 = sorted(np.load(os.path.join(path,'conv_block3.conv2_mean_score.npy'))[int(64*p6):64])
-        C2_i_b3 = sorted(np.load(os.path.join(path,'conv_block3.conv2_mean_score.npy'))[int(64*p6):64])
-        C2_j_b3 = sorted(np.load(os.path.join(path,'conv_block3.conv2_mean_score.npy'))[int(64*p6):64])
-        C2_k_b3 = sorted(np.load(os.path.join(path,'conv_block3.conv2_mean_score.npy'))[int(64*p6):64])
+        C2_r_b3 = sorted(np.load(os.path.join(path,'conv_block3.conv2_sorted_index.npy'))[int(64*p6):64])
+        C2_i_b3 = sorted(np.load(os.path.join(path,'conv_block3.conv2_sorted_index.npy'))[int(64*p6):64])
+        C2_j_b3 = sorted(np.load(os.path.join(path,'conv_block3.conv2_sorted_index.npy'))[int(64*p6):64])
+        C2_k_b3 = sorted(np.load(os.path.join(path,'conv_block3.conv2_sorted_index.npy'))[int(64*p6):64])
         
         #sorted(np.load(os.path.join(path,'conv_block3.conv2.weight.npy'))[int(256*p6):256])
         
@@ -583,48 +583,48 @@ class QCnn14_pruned(nn.Module):
         #'''''''''''''''''''''''''''''''''''''''''block 4
         #sorted(np.load(os.path.join(path,'conv_block4.conv2.weight.npy'))[int(512*p8):512])
         
-        C1_r_b4 = sorted(np.load(os.path.join(path,'conv_block4.conv1_mean_score.npy'))[int(128*p7):128])
-        C1_i_b4 = sorted(np.load(os.path.join(path,'conv_block4.conv1_mean_score.npy'))[int(128*p7):128])
-        C1_j_b4 = sorted(np.load(os.path.join(path,'conv_block4.conv1_mean_score.npy'))[int(128*p7):128])
-        C1_k_b4 = sorted(np.load(os.path.join(path,'conv_block4.conv1_mean_score.npy'))[int(128*p7):128])
+        C1_r_b4 = sorted(np.load(os.path.join(path,'conv_block4.conv1_sorted_index.npy'))[int(128*p7):128])
+        C1_i_b4 = sorted(np.load(os.path.join(path,'conv_block4.conv1_sorted_index.npy'))[int(128*p7):128])
+        C1_j_b4 = sorted(np.load(os.path.join(path,'conv_block4.conv1_sorted_index.npy'))[int(128*p7):128])
+        C1_k_b4 = sorted(np.load(os.path.join(path,'conv_block4.conv1_sorted_index.npy'))[int(128*p7):128])
         
         
         #sorted(np.load(os.path.join(path,'conv_block4.conv1.weight.npy'))[int(512*p7):512])
-        C2_r_b4 = sorted(np.load(os.path.join(path,'conv_block4.conv2_mean_score.npy'))[int(128*p8):128])
-        C2_i_b4 = sorted(np.load(os.path.join(path,'conv_block4.conv2_mean_score.npy'))[int(128*p8):128])
-        C2_j_b4 = sorted(np.load(os.path.join(path,'conv_block4.conv2_mean_score.npy'))[int(128*p8):128])
-        C2_k_b4 = sorted(np.load(os.path.join(path,'conv_block4.conv2_mean_score.npy'))[int(128*p8):128])
+        C2_r_b4 = sorted(np.load(os.path.join(path,'conv_block4.conv2_sorted_index.npy'))[int(128*p8):128])
+        C2_i_b4 = sorted(np.load(os.path.join(path,'conv_block4.conv2_sorted_index.npy'))[int(128*p8):128])
+        C2_j_b4 = sorted(np.load(os.path.join(path,'conv_block4.conv2_sorted_index.npy'))[int(128*p8):128])
+        C2_k_b4 = sorted(np.load(os.path.join(path,'conv_block4.conv2_sorted_index.npy'))[int(128*p8):128])
         
         
         #'''''''''''''''''''''''''''''''''''block 5
         
-        C1_r_b5 = sorted(np.load(os.path.join(path,'conv_block5.conv1_mean_score.npy'))[int(256*p9):256])
-        C1_i_b5 = sorted(np.load(os.path.join(path,'conv_block5.conv1_mean_score.npy'))[int(256*p9):256])
-        C1_j_b5 = sorted(np.load(os.path.join(path,'conv_block5.conv1_mean_score.npy'))[int(256*p9):256])
-        C1_k_b5 = sorted(np.load(os.path.join(path,'conv_block5.conv1_mean_score.npy'))[int(256*p9):256])
+        C1_r_b5 = sorted(np.load(os.path.join(path,'conv_block5.conv1_sorted_index.npy'))[int(256*p9):256])
+        C1_i_b5 = sorted(np.load(os.path.join(path,'conv_block5.conv1_sorted_index.npy'))[int(256*p9):256])
+        C1_j_b5 = sorted(np.load(os.path.join(path,'conv_block5.conv1_sorted_index.npy'))[int(256*p9):256])
+        C1_k_b5 = sorted(np.load(os.path.join(path,'conv_block5.conv1_sorted_index.npy'))[int(256*p9):256])
         
         
-        C2_r_b5 = sorted(np.load(os.path.join(path,'conv_block5.conv2_mean_score.npy'))[int(256*p10):256])
-        C2_i_b5 = sorted(np.load(os.path.join(path,'conv_block5.conv2_mean_score.npy'))[int(256*p10):256])
-        C2_j_b5 = sorted(np.load(os.path.join(path,'conv_block5.conv2_mean_score.npy'))[int(256*p10):256])
-        C2_k_b5 = sorted(np.load(os.path.join(path,'conv_block5.conv2_mean_score.npy'))[int(256*p10):256])
+        C2_r_b5 = sorted(np.load(os.path.join(path,'conv_block5.conv2_sorted_index.npy'))[int(256*p10):256])
+        C2_i_b5 = sorted(np.load(os.path.join(path,'conv_block5.conv2_sorted_index.npy'))[int(256*p10):256])
+        C2_j_b5 = sorted(np.load(os.path.join(path,'conv_block5.conv2_sorted_index.npy'))[int(256*p10):256])
+        C2_k_b5 = sorted(np.load(os.path.join(path,'conv_block5.conv2_sorted_index.npy'))[int(256*p10):256])
         
         
         #'''''''''''''''''''''''''''''''''''''block 6
         ##sorted(np.load(os.path.join(path,'conv_block5.conv2.weight.npy'))[int(1024*p10):1024])
         
-        C1_r_b6 = sorted(np.load(os.path.join(path,'conv_block6.conv1_mean_score.npy'))[int(512*p11):512])
-        C1_i_b6 = sorted(np.load(os.path.join(path,'conv_block6.conv1_mean_score.npy'))[int(512*p11):512])
-        C1_j_b6 = sorted(np.load(os.path.join(path,'conv_block6.conv1_mean_score.npy'))[int(512*p11):512])
-        C1_k_b6 = sorted(np.load(os.path.join(path,'conv_block6.conv1_mean_score.npy'))[int(512*p11):512])
+        C1_r_b6 = sorted(np.load(os.path.join(path,'conv_block6.conv1_sorted_index.npy'))[int(512*p11):512])
+        C1_i_b6 = sorted(np.load(os.path.join(path,'conv_block6.conv1_sorted_index.npy'))[int(512*p11):512])
+        C1_j_b6 = sorted(np.load(os.path.join(path,'conv_block6.conv1_sorted_index.npy'))[int(512*p11):512])
+        C1_k_b6 = sorted(np.load(os.path.join(path,'conv_block6.conv1_sorted_index.npy'))[int(512*p11):512])
         
         
         
         #sorted(np.load(os.path.join(path,'conv_block6.conv1.weight.npy'))[int(2048*p11):2048])
-        C2_r_b6 = sorted(np.load(os.path.join(path,'conv_block6.conv2_mean_score.npy'))[int(512*p12):512])
-        C2_i_b6 = sorted(np.load(os.path.join(path,'conv_block6.conv2_mean_score.npy'))[int(512*p12):512])
-        C2_j_b6 = sorted(np.load(os.path.join(path,'conv_block6.conv2_mean_score.npy'))[int(512*p12):512])
-        C2_k_b6 = sorted(np.load(os.path.join(path,'conv_block6.conv2_mean_score.npy'))[int(512*p12):512])
+        C2_r_b6 = sorted(np.load(os.path.join(path,'conv_block6.conv2_sorted_index.npy'))[int(512*p12):512])
+        C2_i_b6 = sorted(np.load(os.path.join(path,'conv_block6.conv2_sorted_index.npy'))[int(512*p12):512])
+        C2_j_b6 = sorted(np.load(os.path.join(path,'conv_block6.conv2_sorted_index.npy'))[int(512*p12):512])
+        C2_k_b6 = sorted(np.load(os.path.join(path,'conv_block6.conv2_sorted_index.npy'))[int(512*p12):512])
                 ##sorted(np.load(os.path.join(path,'conv_block6.conv2.weight.npy'))[int(2048*p12):2048])
 
 
@@ -1224,9 +1224,9 @@ class QResNet38_pruned(nn.Module):
 
         w_Qresnet_pruned = weights
         # user input 
-        path_to_qresent_sorted_index = 'as' #add path here.........................................................................................................
-        conv_block_after1_conv1_important_index = np.load(os.path.join(path_to_qresent_sorted_index,'conv_block_after1.conv1_mean_score.npy'))
-        conv_block_after1_conv2_important_index = np.load(os.path.join(path_to_qresent_sorted_index,'conv_block_after1.conv2_mean_score.npy'))
+        path_to_qresent_sorted_index = './out/QReSnet38/op' #add path here.........................................................................................................
+        conv_block_after1_conv1_important_index = np.load(os.path.join(path_to_qresent_sorted_index,'conv_block_after1.conv1_sorted_index.npy'))
+        conv_block_after1_conv2_important_index = np.load(os.path.join(path_to_qresent_sorted_index,'conv_block_after1.conv2_sorted_index.npy'))
 
         sorted_index_bottleneck = np.arange(0,int(512/4))
 
