@@ -1,7 +1,7 @@
-eval "$('/mnt/fast/nobackup/users/as0150/anaconda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+eval "$('~/anaconda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 conda activate panns
 
-cd /mnt/fast/nobackup/scratch4weeks/as0150/audioset_tagging_cnn/
+cd ./audioset_tagging_cnn/
 
 WORKSPACE="./workspaces/audioset_tagging"   # Default argument.
 echo $WORKSPACE
