@@ -117,6 +117,6 @@ CUDA_LAUNCH_BLOCKING=1 CUDA_VISIBLE_DEVICES=0 python3 pytorch/main.py train     
 ---
 
 ## 📌 License
- MIT
+ MIT (add here later)
 
 ---
