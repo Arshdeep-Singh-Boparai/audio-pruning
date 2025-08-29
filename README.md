@@ -113,7 +113,7 @@ CUDA_LAUNCH_BLOCKING=1 CUDA_VISIBLE_DEVICES=0 python3 pytorch/main.py train     
 - [ ] Upload pretrained checkpoints  
 - [ ] Release experimental results (tables & plots)  
 - [ ] Add usage examples for pruning + KD  
-
+- [ ] Transfer learning of pruned QCNNs with GTZAN, ESC-50, RAVDESS audio datasets.
 ---
 
 ## 📌 License
