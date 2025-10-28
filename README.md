@@ -119,6 +119,9 @@ Please follow the [link](https://github.com/Arshdeep-Singh-Boparai/Transfer_lear
 ---
 
 ## 📌 License
- MIT (add here later)
+ MIT 
+
+## Citation
+A Singh, V Abrol, Mark D. Plumbley, "Compressing Quaternion Convolutional Neural Networks for Audio Classification", under review (arXived version [link](https://arxiv.org/abs/2510.21388))
 
 ---
