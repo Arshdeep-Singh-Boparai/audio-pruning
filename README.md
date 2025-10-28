@@ -75,9 +75,9 @@ bash ./scripts/pruned_KD.sh
 
 ## 🔹 Checkpoints
 
-👉 Pretrained and pruned checkpoints (QCNN14 & QResNet38) will be made available soon.  
+👉 Baseline/original Pretrained checkpoints (QCNN14 & QResNet38).  
 
-[Download Link Placeholder]()
+[Download Link Placeholder](https://doi.org/10.5281/zenodo.16987715)
 
 ---
 
